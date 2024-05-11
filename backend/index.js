@@ -11,6 +11,7 @@ const Note = require("./models/note.model");
 const express = require("express");
 const cors = require("cors");
 const app = express();
+const PORT = process.env.PORT || 8000;
 
 const jwt = require("jsonwebtoken");
 const { authenticateToken } = require("./utilities");
@@ -309,6 +310,8 @@ app.get("/search-notes/", authenticateToken, async (req, res) => {
   }
 })
 
-app.listen(8000);
+app.listen(PORT,()=>{
+  console.log('Server is Running')
+});
 
 module.exports = app;
