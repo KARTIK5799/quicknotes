@@ -3,7 +3,17 @@ require("dotenv").config();
 const config = require("./config.json");
 const mongoose = require("mongoose");
 
-mongoose.connect(config.connectionString);
+mongoose.connect(config.connectionString).then(() => {
+  console.log("Connected to MongoDB");
+  // server = app.listen(config.port, () => {
+  //     console.log(`Server is listening at port ${config.port}`);
+  // } );
+}).catch((error) => {
+  console.log("Error connecting to MongoDB : ", error);
+})
+
+// mongoose.connect(config.connectionString);
+const PORT=process.env.PORT
 
 const User = require("./models/user.model");
 const Note = require("./models/note.model");
@@ -11,7 +21,6 @@ const Note = require("./models/note.model");
 const express = require("express");
 const cors = require("cors");
 const app = express();
-const PORT = process.env.PORT ;
 
 const jwt = require("jsonwebtoken");
 const { authenticateToken } = require("./utilities");
@@ -24,9 +33,8 @@ app.use(
   })
 );
 
-
 app.get("/", (req, res) => {
-  res.json({ data: "server is running" });
+  res.json({ data: "hello" });
 });
 
 // Create Account
@@ -312,7 +320,7 @@ app.get("/search-notes/", authenticateToken, async (req, res) => {
 })
 
 app.listen(PORT,()=>{
-  console.log('Server is Running')
+  console.log(`server is Running on ${PORT}`);
 });
 
 module.exports = app;
