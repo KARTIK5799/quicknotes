@@ -3,6 +3,7 @@ require("dotenv").config();
 const config = require("./config.json");
 const mongoose = require("mongoose");
  
+const PORT=process.env.PORT || 5000;
 
 
 mongoose.connect('mongodb+srv://testuser:testuser123@notesapp.gwcqmrq.mongodb.net/?retryWrites=true&w=majority&appName=notesapp').then(() => {
@@ -15,7 +16,7 @@ mongoose.connect('mongodb+srv://testuser:testuser123@notesapp.gwcqmrq.mongodb.ne
 })
 
 // mongoose.connect(config.connectionString);
-const PORT=process.env.PORT
+
 
 const User = require("./models/user.model");
 const Note = require("./models/note.model");
