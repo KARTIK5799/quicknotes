@@ -36,7 +36,7 @@ app.use(
 );
 
 app.get("/", (req, res) => {
-  res.json({ data: "hello" });
+  res.json({ data: "Server is running" });
 });
 
 // Create Account
