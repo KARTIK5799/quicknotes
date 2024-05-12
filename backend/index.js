@@ -28,6 +28,7 @@ const jwt = require("jsonwebtoken");
 const { authenticateToken } = require("./utilities");
 
 app.use(express.json())
+app.use(cors());
 
 app.use(
   cors({
