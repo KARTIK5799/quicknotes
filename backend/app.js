@@ -5,7 +5,7 @@ const mongoose = require("mongoose");
  
 
 
-mongoose.connect(config.connectionString).then(() => {
+mongoose.connect('mongodb+srv://testuser:testuser123@notesapp.gwcqmrq.mongodb.net/?retryWrites=true&w=majority&appName=notesapp').then(() => {
   console.log("Connected to MongoDB");
   // server = app.listen(config.port, () => {
   //     console.log(`Server is listening at port ${config.port}`);
