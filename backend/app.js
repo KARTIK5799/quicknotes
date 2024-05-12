@@ -2,10 +2,10 @@ require("dotenv").config();
 
 const config = require("./config.json");
 const mongoose = require("mongoose");
+ 
 
-const connectionString="mongodb+srv://testuser:testuser123@notesapp.gwcqmrq.mongodb.net/?retryWrites=true&w=majority&appName=notesapp"
 
-mongoose.connect(connectionString).then(() => {
+mongoose.connect(process.env.MONGODB_URI).then(() => {
   console.log("Connected to MongoDB");
   // server = app.listen(config.port, () => {
   //     console.log(`Server is listening at port ${config.port}`);
@@ -28,16 +28,15 @@ const jwt = require("jsonwebtoken");
 const { authenticateToken } = require("./utilities");
 
 app.use(express.json())
-app.use(cors());
 
 app.use(
   cors({
-    origin: "https://quicknotes-three.vercel.app/",
+    origin: "*",
   })
 );
 
 app.get("/", (req, res) => {
-  res.json({ data: "Server is running" });
+  res.json({ data: "hello" });
 });
 
 // Create Account
