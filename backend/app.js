@@ -5,7 +5,7 @@ const mongoose = require("mongoose");
  
 
 
-mongoose.connect(process.env.MONGODB_URI).then(() => {
+mongoose.connect(config.connectionString).then(() => {
   console.log("Connected to MongoDB");
   // server = app.listen(config.port, () => {
   //     console.log(`Server is listening at port ${config.port}`);
