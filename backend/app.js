@@ -6,16 +6,13 @@ const mongoose = require("mongoose");
 const PORT=process.env.PORT || 5000;
 
 
-mongoose.connect('mongodb+srv://testuser:testuser123@notesapp.gwcqmrq.mongodb.net/?retryWrites=true&w=majority&appName=notesapp').then(() => {
-  console.log("Connected to MongoDB");
-  // server = app.listen(config.port, () => {
-  //     console.log(`Server is listening at port ${config.port}`);
-  // } );
-}).catch((error) => {
-  console.log("Error connecting to MongoDB : ", error);
-})
+// mongoose.connect('mongodb+srv://testuser:testuser123@notesapp.gwcqmrq.mongodb.net/?retryWrites=true&w=majority&appName=notesapp').then(() => {
+//   console.log("Connected to MongoDB");
+// }).catch((error) => {
+//   console.log("Error connecting to MongoDB : ", error);
+// })
 
-// mongoose.connect(config.connectionString);
+mongoose.connect(config.connectionString);
 
 
 const User = require("./models/user.model");
